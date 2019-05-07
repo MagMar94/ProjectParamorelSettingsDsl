@@ -1,0 +1,22 @@
+grammar org.xtext.projectparamorel.dsl.Dsl with org.eclipse.xtext.common.Terminals
+
+generate dsl "http://www.xtext.org/projectparamorel/dsl/Dsl"
+
+Experience:
+	entries+=Entry*;
+	
+Entry:
+	Metric
+;
+	
+Metric:
+	'I' 'want' 'my' 'preferences' 'to' state=StateOption name=QualifiedName 'by' 'a' 'weight' 'of' weight=INT '.'
+;
+
+StateOption:
+	'reward' | 'punish'
+;
+
+QualifiedName:
+	'deletion' | 'shorterSequencesOfActions' | 'longerSequencesOfActions' | 'repairingLowerInTheContextHierarchies' | 'repairingHigherInTheContextHierarchies' | 'modificationOfTheOriginalModel'
+;
