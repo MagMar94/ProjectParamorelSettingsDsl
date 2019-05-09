@@ -5,6 +5,7 @@ package org.xtext.projectparamorel.dsl.generator;
 
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import hvl.projectparmorel.ml.Preferences;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
@@ -28,14 +29,28 @@ public class DslGenerator extends AbstractGenerator {
   @Extension
   private IQualifiedNameProvider _iQualifiedNameProvider;
   
+  private Preferences p = new Preferences();
+  
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
     Iterable<Metric> _filter = Iterables.<Metric>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Metric.class);
     for (final Metric e : _filter) {
-      String _string = this._iQualifiedNameProvider.getFullyQualifiedName(e).toString("/");
-      String _plus = (_string + ".java");
-      fsa.generateFile(_plus, this.compile(e));
+      {
+        boolean _equals = e.getState().equals("reward");
+        if (_equals) {
+          this.p.setRewardPreference(e.getName(), e.getWeight());
+        } else {
+          boolean _equals_1 = e.getState().equals("punish");
+          if (_equals_1) {
+            this.p.setPunishPreference(e.getName(), e.getWeight());
+          }
+        }
+        String _string = this._iQualifiedNameProvider.getFullyQualifiedName(e).toString("/");
+        String _plus = (_string + ".java");
+        fsa.generateFile(_plus, this.compile(e));
+      }
     }
+    this.p.saveToFile();
   }
   
   public CharSequence compile(final Metric m) {

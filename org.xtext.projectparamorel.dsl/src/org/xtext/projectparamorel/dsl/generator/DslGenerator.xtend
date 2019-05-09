@@ -3,14 +3,14 @@
  */
 package org.xtext.projectparamorel.dsl.generator
 
+import com.google.inject.Inject
 import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
-import org.xtext.projectparamorel.dsl.dsl.Metric
 import org.eclipse.xtext.naming.IQualifiedNameProvider
-
-import com.google.inject.Inject
+import org.xtext.projectparamorel.dsl.dsl.Metric
+import hvl.projectparmorel.ml.Preferences
 
 /**
  * Generates code from your model files on save.
@@ -20,16 +20,20 @@ import com.google.inject.Inject
 class DslGenerator extends AbstractGenerator {
 
 	@Inject extension IQualifiedNameProvider
+	
+	Preferences p = new Preferences();
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
 		for (e : resource.allContents.toIterable.filter(Metric)) {
+			if(e.state.equals("reward")){
+				p.setRewardPreference(e.name, e.weight);
+			} else if (e.state.equals("punish")){
+				p.setPunishPreference(e.name, e.weight);
+			}
+			
 			fsa.generateFile(e.fullyQualifiedName.toString("/") + ".java", e.compile)
 		}
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		p.saveToFile();
 	}
 
 	def CharSequence compile(Metric m) '''
@@ -43,3 +47,5 @@ class DslGenerator extends AbstractGenerator {
 		}
 	'''
 }
+
+		
