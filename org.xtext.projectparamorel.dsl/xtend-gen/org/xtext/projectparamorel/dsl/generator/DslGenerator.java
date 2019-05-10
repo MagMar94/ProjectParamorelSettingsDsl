@@ -3,7 +3,10 @@
  */
 package org.xtext.projectparamorel.dsl.generator;
 
+import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
+import hvl.projectparmorel.ml.Preferences;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
@@ -12,6 +15,7 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 import org.eclipse.xtext.naming.IQualifiedNameProvider;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.xbase.lib.Extension;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
 import org.xtext.projectparamorel.dsl.dsl.Metric;
 
 /**
@@ -25,17 +29,28 @@ public class DslGenerator extends AbstractGenerator {
   @Extension
   private IQualifiedNameProvider _iQualifiedNameProvider;
   
-  private /* Preferences */Object p /* Skipped initializer because of errors */;
+  private Preferences p = new Preferences();
   
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
-    throw new Error("Unresolved compilation problems:"
-      + "\nThe field DslGenerator.p refers to the missing type Preferences"
-      + "\nThe field DslGenerator.p refers to the missing type Preferences"
-      + "\nThe field DslGenerator.p refers to the missing type Preferences"
-      + "\nsetRewardPreference cannot be resolved"
-      + "\nsetPunishPreference cannot be resolved"
-      + "\nsaveToFile cannot be resolved");
+    Iterable<Metric> _filter = Iterables.<Metric>filter(IteratorExtensions.<EObject>toIterable(resource.getAllContents()), Metric.class);
+    for (final Metric e : _filter) {
+      {
+        boolean _equals = e.getState().equals("reward");
+        if (_equals) {
+          this.p.setRewardPreference(e.getName(), e.getWeight());
+        } else {
+          boolean _equals_1 = e.getState().equals("punish");
+          if (_equals_1) {
+            this.p.setPunishPreference(e.getName(), e.getWeight());
+          }
+        }
+        String _string = this._iQualifiedNameProvider.getFullyQualifiedName(e).toString("/");
+        String _plus = (_string + ".java");
+        fsa.generateFile(_plus, this.compile(e));
+      }
+    }
+    this.p.saveToFile();
   }
   
   public CharSequence compile(final Metric m) {
