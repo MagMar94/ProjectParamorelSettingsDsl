@@ -24,6 +24,7 @@ hs_err_pid*
 
 #Xtext files
 *.xtendbin
+xtend-gen
 
 # Mac Specific files
 *.DS_Store
