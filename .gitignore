@@ -25,6 +25,7 @@ hs_err_pid*
 #Xtext files
 *.xtendbin
 xtend-gen
+src-gen
 
 # Generated ecore diagrams
 .aird
