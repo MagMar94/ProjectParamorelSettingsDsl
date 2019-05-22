@@ -12,9 +12,8 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.xtext.projectparamorel.dsl.dsl.DslFactory;
 import org.xtext.projectparamorel.dsl.dsl.DslPackage;
-import org.xtext.projectparamorel.dsl.dsl.Entry;
-import org.xtext.projectparamorel.dsl.dsl.Experience;
-import org.xtext.projectparamorel.dsl.dsl.Metric;
+import org.xtext.projectparamorel.dsl.dsl.Preference;
+import org.xtext.projectparamorel.dsl.dsl.Score;
 
 /**
  * <!-- begin-user-doc -->
@@ -29,21 +28,14 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass experienceEClass = null;
+  private EClass preferenceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass entryEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass metricEClass = null;
+  private EClass scoreEClass = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -114,9 +106,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EClass getExperience()
+  public EClass getPreference()
   {
-    return experienceEClass;
+    return preferenceEClass;
   }
 
   /**
@@ -125,9 +117,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EReference getExperience_Entries()
+  public EReference getPreference_Scores()
   {
-    return (EReference)experienceEClass.getEStructuralFeatures().get(0);
+    return (EReference)preferenceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -136,9 +128,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EClass getEntry()
+  public EClass getScore()
   {
-    return entryEClass;
+    return scoreEClass;
   }
 
   /**
@@ -147,9 +139,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EClass getMetric()
+  public EAttribute getScore_Category()
   {
-    return metricEClass;
+    return (EAttribute)scoreEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -158,9 +150,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EAttribute getMetric_State()
+  public EAttribute getScore_Feature()
   {
-    return (EAttribute)metricEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)scoreEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -169,20 +161,9 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
    * @generated
    */
   @Override
-  public EAttribute getMetric_Name()
+  public EAttribute getScore_Value()
   {
-    return (EAttribute)metricEClass.getEStructuralFeatures().get(1);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EAttribute getMetric_Weight()
-  {
-    return (EAttribute)metricEClass.getEStructuralFeatures().get(2);
+    return (EAttribute)scoreEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -216,15 +197,13 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     isCreated = true;
 
     // Create classes and their features
-    experienceEClass = createEClass(EXPERIENCE);
-    createEReference(experienceEClass, EXPERIENCE__ENTRIES);
+    preferenceEClass = createEClass(PREFERENCE);
+    createEReference(preferenceEClass, PREFERENCE__SCORES);
 
-    entryEClass = createEClass(ENTRY);
-
-    metricEClass = createEClass(METRIC);
-    createEAttribute(metricEClass, METRIC__STATE);
-    createEAttribute(metricEClass, METRIC__NAME);
-    createEAttribute(metricEClass, METRIC__WEIGHT);
+    scoreEClass = createEClass(SCORE);
+    createEAttribute(scoreEClass, SCORE__CATEGORY);
+    createEAttribute(scoreEClass, SCORE__FEATURE);
+    createEAttribute(scoreEClass, SCORE__VALUE);
   }
 
   /**
@@ -256,18 +235,15 @@ public class DslPackageImpl extends EPackageImpl implements DslPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    metricEClass.getESuperTypes().add(this.getEntry());
 
     // Initialize classes and features; add operations and parameters
-    initEClass(experienceEClass, Experience.class, "Experience", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getExperience_Entries(), this.getEntry(), null, "entries", null, 0, -1, Experience.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(preferenceEClass, Preference.class, "Preference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPreference_Scores(), this.getScore(), null, "scores", null, 0, -1, Preference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(entryEClass, Entry.class, "Entry", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(metricEClass, Metric.class, "Metric", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMetric_State(), ecorePackage.getEString(), "state", null, 0, 1, Metric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMetric_Name(), ecorePackage.getEString(), "name", null, 0, 1, Metric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getMetric_Weight(), ecorePackage.getEInt(), "weight", null, 0, 1, Metric.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(scoreEClass, Score.class, "Score", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getScore_Category(), ecorePackage.getEString(), "category", null, 0, 1, Score.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getScore_Feature(), ecorePackage.getEString(), "feature", null, 0, 1, Score.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getScore_Value(), ecorePackage.getEInt(), "value", null, 0, 1, Score.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

@@ -73,25 +73,17 @@ public class DslSwitch<T> extends Switch<T>
   {
     switch (classifierID)
     {
-      case DslPackage.EXPERIENCE:
+      case DslPackage.PREFERENCE:
       {
-        Experience experience = (Experience)theEObject;
-        T result = caseExperience(experience);
+        Preference preference = (Preference)theEObject;
+        T result = casePreference(preference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case DslPackage.ENTRY:
+      case DslPackage.SCORE:
       {
-        Entry entry = (Entry)theEObject;
-        T result = caseEntry(entry);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case DslPackage.METRIC:
-      {
-        Metric metric = (Metric)theEObject;
-        T result = caseMetric(metric);
-        if (result == null) result = caseEntry(metric);
+        Score score = (Score)theEObject;
+        T result = caseScore(score);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -100,49 +92,33 @@ public class DslSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Experience</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Preference</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Experience</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Preference</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseExperience(Experience object)
+  public T casePreference(Preference object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Entry</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Score</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Entry</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Score</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseEntry(Entry object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Metric</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Metric</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseMetric(Metric object)
+  public T caseScore(Score object)
   {
     return null;
   }

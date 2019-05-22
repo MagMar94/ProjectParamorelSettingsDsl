@@ -22,106 +22,67 @@ import org.eclipse.xtext.service.GrammarProvider;
 @Singleton
 public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	
-	public class ExperienceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.projectparamorel.dsl.Dsl.Experience");
-		private final Assignment cEntriesAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cEntriesEntryParserRuleCall_0 = (RuleCall)cEntriesAssignment.eContents().get(0);
+	public class PreferenceElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.projectparamorel.dsl.Dsl.Preference");
+		private final Assignment cScoresAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cScoresScoreParserRuleCall_0 = (RuleCall)cScoresAssignment.eContents().get(0);
 		
-		//Experience:
-		//	entries+=Entry*;
+		//Preference:
+		//	scores+=Score*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//entries+=Entry*
-		public Assignment getEntriesAssignment() { return cEntriesAssignment; }
+		//scores+=Score*
+		public Assignment getScoresAssignment() { return cScoresAssignment; }
 		
-		//Entry
-		public RuleCall getEntriesEntryParserRuleCall_0() { return cEntriesEntryParserRuleCall_0; }
+		//Score
+		public RuleCall getScoresScoreParserRuleCall_0() { return cScoresScoreParserRuleCall_0; }
 	}
-	public class EntryElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.projectparamorel.dsl.Dsl.Entry");
-		private final RuleCall cMetricParserRuleCall = (RuleCall)rule.eContents().get(1);
-		
-		//Entry:
-		//	Metric;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//Metric
-		public RuleCall getMetricParserRuleCall() { return cMetricParserRuleCall; }
-	}
-	public class MetricElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.projectparamorel.dsl.Dsl.Metric");
+	public class ScoreElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.projectparamorel.dsl.Dsl.Score");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cIKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cWantKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Keyword cMyKeyword_2 = (Keyword)cGroup.eContents().get(2);
-		private final Keyword cPreferencesKeyword_3 = (Keyword)cGroup.eContents().get(3);
-		private final Keyword cToKeyword_4 = (Keyword)cGroup.eContents().get(4);
-		private final Assignment cStateAssignment_5 = (Assignment)cGroup.eContents().get(5);
-		private final RuleCall cStateStateOptionParserRuleCall_5_0 = (RuleCall)cStateAssignment_5.eContents().get(0);
-		private final Assignment cNameAssignment_6 = (Assignment)cGroup.eContents().get(6);
-		private final RuleCall cNameQualifiedNameParserRuleCall_6_0 = (RuleCall)cNameAssignment_6.eContents().get(0);
-		private final Keyword cByKeyword_7 = (Keyword)cGroup.eContents().get(7);
-		private final Keyword cAKeyword_8 = (Keyword)cGroup.eContents().get(8);
-		private final Keyword cWeightKeyword_9 = (Keyword)cGroup.eContents().get(9);
-		private final Keyword cOfKeyword_10 = (Keyword)cGroup.eContents().get(10);
-		private final Assignment cWeightAssignment_11 = (Assignment)cGroup.eContents().get(11);
-		private final RuleCall cWeightINTTerminalRuleCall_11_0 = (RuleCall)cWeightAssignment_11.eContents().get(0);
-		private final Keyword cFullStopKeyword_12 = (Keyword)cGroup.eContents().get(12);
+		private final Assignment cCategoryAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cCategoryStateOptionParserRuleCall_0_0 = (RuleCall)cCategoryAssignment_0.eContents().get(0);
+		private final Assignment cFeatureAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFeatureQualifiedNameParserRuleCall_1_0 = (RuleCall)cFeatureAssignment_1.eContents().get(0);
+		private final Keyword cByKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cWeightKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Assignment cValueAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cValueINTTerminalRuleCall_4_0 = (RuleCall)cValueAssignment_4.eContents().get(0);
+		private final Keyword cFullStopKeyword_5 = (Keyword)cGroup.eContents().get(5);
 		
-		//Metric:
-		//	'I' 'want' 'my' 'preferences' 'to' state=StateOption name=QualifiedName 'by' 'a' 'weight' 'of' weight=INT '.';
+		//Score:
+		//	category=StateOption feature=QualifiedName 'by' 'weight' value=INT '.';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'I' 'want' 'my' 'preferences' 'to' state=StateOption name=QualifiedName 'by' 'a' 'weight' 'of' weight=INT '.'
+		//category=StateOption feature=QualifiedName 'by' 'weight' value=INT '.'
 		public Group getGroup() { return cGroup; }
 		
-		//'I'
-		public Keyword getIKeyword_0() { return cIKeyword_0; }
-		
-		//'want'
-		public Keyword getWantKeyword_1() { return cWantKeyword_1; }
-		
-		//'my'
-		public Keyword getMyKeyword_2() { return cMyKeyword_2; }
-		
-		//'preferences'
-		public Keyword getPreferencesKeyword_3() { return cPreferencesKeyword_3; }
-		
-		//'to'
-		public Keyword getToKeyword_4() { return cToKeyword_4; }
-		
-		//state=StateOption
-		public Assignment getStateAssignment_5() { return cStateAssignment_5; }
+		//category=StateOption
+		public Assignment getCategoryAssignment_0() { return cCategoryAssignment_0; }
 		
 		//StateOption
-		public RuleCall getStateStateOptionParserRuleCall_5_0() { return cStateStateOptionParserRuleCall_5_0; }
+		public RuleCall getCategoryStateOptionParserRuleCall_0_0() { return cCategoryStateOptionParserRuleCall_0_0; }
 		
-		//name=QualifiedName
-		public Assignment getNameAssignment_6() { return cNameAssignment_6; }
+		//feature=QualifiedName
+		public Assignment getFeatureAssignment_1() { return cFeatureAssignment_1; }
 		
 		//QualifiedName
-		public RuleCall getNameQualifiedNameParserRuleCall_6_0() { return cNameQualifiedNameParserRuleCall_6_0; }
+		public RuleCall getFeatureQualifiedNameParserRuleCall_1_0() { return cFeatureQualifiedNameParserRuleCall_1_0; }
 		
 		//'by'
-		public Keyword getByKeyword_7() { return cByKeyword_7; }
-		
-		//'a'
-		public Keyword getAKeyword_8() { return cAKeyword_8; }
+		public Keyword getByKeyword_2() { return cByKeyword_2; }
 		
 		//'weight'
-		public Keyword getWeightKeyword_9() { return cWeightKeyword_9; }
+		public Keyword getWeightKeyword_3() { return cWeightKeyword_3; }
 		
-		//'of'
-		public Keyword getOfKeyword_10() { return cOfKeyword_10; }
-		
-		//weight=INT
-		public Assignment getWeightAssignment_11() { return cWeightAssignment_11; }
+		//value=INT
+		public Assignment getValueAssignment_4() { return cValueAssignment_4; }
 		
 		//INT
-		public RuleCall getWeightINTTerminalRuleCall_11_0() { return cWeightINTTerminalRuleCall_11_0; }
+		public RuleCall getValueINTTerminalRuleCall_4_0() { return cValueINTTerminalRuleCall_4_0; }
 		
 		//'.'
-		public Keyword getFullStopKeyword_12() { return cFullStopKeyword_12; }
+		public Keyword getFullStopKeyword_5() { return cFullStopKeyword_5; }
 	}
 	public class StateOptionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.projectparamorel.dsl.Dsl.StateOption");
@@ -130,16 +91,16 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cPunishKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		
 		//StateOption:
-		//	'reward' | 'punish';
+		//	'Reward' | 'Punish';
 		@Override public ParserRule getRule() { return rule; }
 		
-		//'reward' | 'punish'
+		//'Reward' | 'Punish'
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//'reward'
+		//'Reward'
 		public Keyword getRewardKeyword_0() { return cRewardKeyword_0; }
 		
-		//'punish'
+		//'Punish'
 		public Keyword getPunishKeyword_1() { return cPunishKeyword_1; }
 	}
 	public class QualifiedNameElements extends AbstractParserRuleElementFinder {
@@ -181,9 +142,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 	
 	
-	private final ExperienceElements pExperience;
-	private final EntryElements pEntry;
-	private final MetricElements pMetric;
+	private final PreferenceElements pPreference;
+	private final ScoreElements pScore;
 	private final StateOptionElements pStateOption;
 	private final QualifiedNameElements pQualifiedName;
 	
@@ -196,9 +156,8 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 			TerminalsGrammarAccess gaTerminals) {
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
-		this.pExperience = new ExperienceElements();
-		this.pEntry = new EntryElements();
-		this.pMetric = new MetricElements();
+		this.pPreference = new PreferenceElements();
+		this.pScore = new ScoreElements();
 		this.pStateOption = new StateOptionElements();
 		this.pQualifiedName = new QualifiedNameElements();
 	}
@@ -230,38 +189,28 @@ public class DslGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	
-	//Experience:
-	//	entries+=Entry*;
-	public ExperienceElements getExperienceAccess() {
-		return pExperience;
+	//Preference:
+	//	scores+=Score*;
+	public PreferenceElements getPreferenceAccess() {
+		return pPreference;
 	}
 	
-	public ParserRule getExperienceRule() {
-		return getExperienceAccess().getRule();
+	public ParserRule getPreferenceRule() {
+		return getPreferenceAccess().getRule();
 	}
 	
-	//Entry:
-	//	Metric;
-	public EntryElements getEntryAccess() {
-		return pEntry;
+	//Score:
+	//	category=StateOption feature=QualifiedName 'by' 'weight' value=INT '.';
+	public ScoreElements getScoreAccess() {
+		return pScore;
 	}
 	
-	public ParserRule getEntryRule() {
-		return getEntryAccess().getRule();
-	}
-	
-	//Metric:
-	//	'I' 'want' 'my' 'preferences' 'to' state=StateOption name=QualifiedName 'by' 'a' 'weight' 'of' weight=INT '.';
-	public MetricElements getMetricAccess() {
-		return pMetric;
-	}
-	
-	public ParserRule getMetricRule() {
-		return getMetricAccess().getRule();
+	public ParserRule getScoreRule() {
+		return getScoreAccess().getRule();
 	}
 	
 	//StateOption:
-	//	'reward' | 'punish';
+	//	'Reward' | 'Punish';
 	public StateOptionElements getStateOptionAccess() {
 		return pStateOption;
 	}

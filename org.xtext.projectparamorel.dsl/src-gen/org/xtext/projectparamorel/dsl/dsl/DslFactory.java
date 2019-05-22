@@ -24,31 +24,22 @@ public interface DslFactory extends EFactory
   DslFactory eINSTANCE = org.xtext.projectparamorel.dsl.dsl.impl.DslFactoryImpl.init();
 
   /**
-   * Returns a new object of class '<em>Experience</em>'.
+   * Returns a new object of class '<em>Preference</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Experience</em>'.
+   * @return a new object of class '<em>Preference</em>'.
    * @generated
    */
-  Experience createExperience();
+  Preference createPreference();
 
   /**
-   * Returns a new object of class '<em>Entry</em>'.
+   * Returns a new object of class '<em>Score</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Entry</em>'.
+   * @return a new object of class '<em>Score</em>'.
    * @generated
    */
-  Entry createEntry();
-
-  /**
-   * Returns a new object of class '<em>Metric</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Metric</em>'.
-   * @generated
-   */
-  Metric createMetric();
+  Score createScore();
 
   /**
    * Returns the package supported by this factory.

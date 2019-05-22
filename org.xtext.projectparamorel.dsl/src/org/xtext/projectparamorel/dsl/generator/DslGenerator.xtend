@@ -9,8 +9,8 @@ import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
 import org.eclipse.xtext.naming.IQualifiedNameProvider
-import org.xtext.projectparamorel.dsl.dsl.Metric
-import hvl.projectparmorel.ml.Preferences
+import code.Preferences
+import org.xtext.projectparamorel.dsl.dsl.Score
 
 /**
  * Generates code from your model files on save.
@@ -24,26 +24,26 @@ class DslGenerator extends AbstractGenerator {
 	Preferences p = new Preferences();
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-		for (e : resource.allContents.toIterable.filter(Metric)) {
-			if(e.state.equals("reward")){
-				p.setRewardPreference(e.name, e.weight);
-			} else if (e.state.equals("punish")){
-				p.setPunishPreference(e.name, e.weight);
+		for (e : resource.allContents.toIterable.filter(Score)) {
+			if(e.category.equals("Reward")){
+				p.setRewardPreference(e.feature, e.value);
+			} else if (e.category.equals("Punish")){
+				p.setPunishPreference(e.feature, e.value);
 			}
 			
-			fsa.generateFile(e.fullyQualifiedName.toString("/") + ".java", e.compile)
+			//fsa.generateFile(e.fullyQualifiedName.toString("/") + ".java", e.compile)
 		}
 		p.saveToFile();
 	}
 
-	def CharSequence compile(Metric m) '''
-		«IF m.eContainer.fullyQualifiedName !== null»
-			package «m.eContainer.fullyQualifiedName»;
+	def CharSequence compile(Score s) '''
+		«IF s.eContainer.fullyQualifiedName !== null»
+			package «s.eContainer.fullyQualifiedName»;
 		«ENDIF»
 		
-		public class «m.name» {
-			private String option= «m.state»;
-			private int weight = «m.weight»;
+		public class «s.feature» {
+			private String option= «s.category»;
+			private int weight = «s.value»;
 		}
 	'''
 }

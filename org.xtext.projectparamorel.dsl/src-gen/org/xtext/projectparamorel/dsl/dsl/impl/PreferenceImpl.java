@@ -18,40 +18,40 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.xtext.projectparamorel.dsl.dsl.DslPackage;
-import org.xtext.projectparamorel.dsl.dsl.Entry;
-import org.xtext.projectparamorel.dsl.dsl.Experience;
+import org.xtext.projectparamorel.dsl.dsl.Preference;
+import org.xtext.projectparamorel.dsl.dsl.Score;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Experience</b></em>'.
+ * An implementation of the model object '<em><b>Preference</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.projectparamorel.dsl.dsl.impl.ExperienceImpl#getEntries <em>Entries</em>}</li>
+ *   <li>{@link org.xtext.projectparamorel.dsl.dsl.impl.PreferenceImpl#getScores <em>Scores</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class ExperienceImpl extends MinimalEObjectImpl.Container implements Experience
+public class PreferenceImpl extends MinimalEObjectImpl.Container implements Preference
 {
   /**
-   * The cached value of the '{@link #getEntries() <em>Entries</em>}' containment reference list.
+   * The cached value of the '{@link #getScores() <em>Scores</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getEntries()
+   * @see #getScores()
    * @generated
    * @ordered
    */
-  protected EList<Entry> entries;
+  protected EList<Score> scores;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ExperienceImpl()
+  protected PreferenceImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class ExperienceImpl extends MinimalEObjectImpl.Container implements Expe
   @Override
   protected EClass eStaticClass()
   {
-    return DslPackage.Literals.EXPERIENCE;
+    return DslPackage.Literals.PREFERENCE;
   }
 
   /**
@@ -73,13 +73,13 @@ public class ExperienceImpl extends MinimalEObjectImpl.Container implements Expe
    * @generated
    */
   @Override
-  public EList<Entry> getEntries()
+  public EList<Score> getScores()
   {
-    if (entries == null)
+    if (scores == null)
     {
-      entries = new EObjectContainmentEList<Entry>(Entry.class, this, DslPackage.EXPERIENCE__ENTRIES);
+      scores = new EObjectContainmentEList<Score>(Score.class, this, DslPackage.PREFERENCE__SCORES);
     }
-    return entries;
+    return scores;
   }
 
   /**
@@ -92,8 +92,8 @@ public class ExperienceImpl extends MinimalEObjectImpl.Container implements Expe
   {
     switch (featureID)
     {
-      case DslPackage.EXPERIENCE__ENTRIES:
-        return ((InternalEList<?>)getEntries()).basicRemove(otherEnd, msgs);
+      case DslPackage.PREFERENCE__SCORES:
+        return ((InternalEList<?>)getScores()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +108,8 @@ public class ExperienceImpl extends MinimalEObjectImpl.Container implements Expe
   {
     switch (featureID)
     {
-      case DslPackage.EXPERIENCE__ENTRIES:
-        return getEntries();
+      case DslPackage.PREFERENCE__SCORES:
+        return getScores();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +125,9 @@ public class ExperienceImpl extends MinimalEObjectImpl.Container implements Expe
   {
     switch (featureID)
     {
-      case DslPackage.EXPERIENCE__ENTRIES:
-        getEntries().clear();
-        getEntries().addAll((Collection<? extends Entry>)newValue);
+      case DslPackage.PREFERENCE__SCORES:
+        getScores().clear();
+        getScores().addAll((Collection<? extends Score>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +143,8 @@ public class ExperienceImpl extends MinimalEObjectImpl.Container implements Expe
   {
     switch (featureID)
     {
-      case DslPackage.EXPERIENCE__ENTRIES:
-        getEntries().clear();
+      case DslPackage.PREFERENCE__SCORES:
+        getScores().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,10 +160,10 @@ public class ExperienceImpl extends MinimalEObjectImpl.Container implements Expe
   {
     switch (featureID)
     {
-      case DslPackage.EXPERIENCE__ENTRIES:
-        return entries != null && !entries.isEmpty();
+      case DslPackage.PREFERENCE__SCORES:
+        return scores != null && !scores.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //ExperienceImpl
+} //PreferenceImpl

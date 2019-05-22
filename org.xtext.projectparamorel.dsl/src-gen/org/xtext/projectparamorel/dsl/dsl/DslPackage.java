@@ -58,172 +58,143 @@ public interface DslPackage extends EPackage
   DslPackage eINSTANCE = org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl.init();
 
   /**
-   * The meta object id for the '{@link org.xtext.projectparamorel.dsl.dsl.impl.ExperienceImpl <em>Experience</em>}' class.
+   * The meta object id for the '{@link org.xtext.projectparamorel.dsl.dsl.impl.PreferenceImpl <em>Preference</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.projectparamorel.dsl.dsl.impl.ExperienceImpl
-   * @see org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl#getExperience()
+   * @see org.xtext.projectparamorel.dsl.dsl.impl.PreferenceImpl
+   * @see org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl#getPreference()
    * @generated
    */
-  int EXPERIENCE = 0;
+  int PREFERENCE = 0;
 
   /**
-   * The feature id for the '<em><b>Entries</b></em>' containment reference list.
+   * The feature id for the '<em><b>Scores</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIENCE__ENTRIES = 0;
+  int PREFERENCE__SCORES = 0;
 
   /**
-   * The number of structural features of the '<em>Experience</em>' class.
+   * The number of structural features of the '<em>Preference</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int EXPERIENCE_FEATURE_COUNT = 1;
+  int PREFERENCE_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.projectparamorel.dsl.dsl.impl.EntryImpl <em>Entry</em>}' class.
+   * The meta object id for the '{@link org.xtext.projectparamorel.dsl.dsl.impl.ScoreImpl <em>Score</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.projectparamorel.dsl.dsl.impl.EntryImpl
-   * @see org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl#getEntry()
+   * @see org.xtext.projectparamorel.dsl.dsl.impl.ScoreImpl
+   * @see org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl#getScore()
    * @generated
    */
-  int ENTRY = 1;
+  int SCORE = 1;
 
   /**
-   * The number of structural features of the '<em>Entry</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int ENTRY_FEATURE_COUNT = 0;
-
-  /**
-   * The meta object id for the '{@link org.xtext.projectparamorel.dsl.dsl.impl.MetricImpl <em>Metric</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.projectparamorel.dsl.dsl.impl.MetricImpl
-   * @see org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl#getMetric()
-   * @generated
-   */
-  int METRIC = 2;
-
-  /**
-   * The feature id for the '<em><b>State</b></em>' attribute.
+   * The feature id for the '<em><b>Category</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METRIC__STATE = ENTRY_FEATURE_COUNT + 0;
+  int SCORE__CATEGORY = 0;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * The feature id for the '<em><b>Feature</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METRIC__NAME = ENTRY_FEATURE_COUNT + 1;
+  int SCORE__FEATURE = 1;
 
   /**
-   * The feature id for the '<em><b>Weight</b></em>' attribute.
+   * The feature id for the '<em><b>Value</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METRIC__WEIGHT = ENTRY_FEATURE_COUNT + 2;
+  int SCORE__VALUE = 2;
 
   /**
-   * The number of structural features of the '<em>Metric</em>' class.
+   * The number of structural features of the '<em>Score</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int METRIC_FEATURE_COUNT = ENTRY_FEATURE_COUNT + 3;
+  int SCORE_FEATURE_COUNT = 3;
 
 
   /**
-   * Returns the meta object for class '{@link org.xtext.projectparamorel.dsl.dsl.Experience <em>Experience</em>}'.
+   * Returns the meta object for class '{@link org.xtext.projectparamorel.dsl.dsl.Preference <em>Preference</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Experience</em>'.
-   * @see org.xtext.projectparamorel.dsl.dsl.Experience
+   * @return the meta object for class '<em>Preference</em>'.
+   * @see org.xtext.projectparamorel.dsl.dsl.Preference
    * @generated
    */
-  EClass getExperience();
+  EClass getPreference();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.projectparamorel.dsl.dsl.Experience#getEntries <em>Entries</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.projectparamorel.dsl.dsl.Preference#getScores <em>Scores</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Entries</em>'.
-   * @see org.xtext.projectparamorel.dsl.dsl.Experience#getEntries()
-   * @see #getExperience()
+   * @return the meta object for the containment reference list '<em>Scores</em>'.
+   * @see org.xtext.projectparamorel.dsl.dsl.Preference#getScores()
+   * @see #getPreference()
    * @generated
    */
-  EReference getExperience_Entries();
+  EReference getPreference_Scores();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.projectparamorel.dsl.dsl.Entry <em>Entry</em>}'.
+   * Returns the meta object for class '{@link org.xtext.projectparamorel.dsl.dsl.Score <em>Score</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Entry</em>'.
-   * @see org.xtext.projectparamorel.dsl.dsl.Entry
+   * @return the meta object for class '<em>Score</em>'.
+   * @see org.xtext.projectparamorel.dsl.dsl.Score
    * @generated
    */
-  EClass getEntry();
+  EClass getScore();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.projectparamorel.dsl.dsl.Metric <em>Metric</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.projectparamorel.dsl.dsl.Score#getCategory <em>Category</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Metric</em>'.
-   * @see org.xtext.projectparamorel.dsl.dsl.Metric
+   * @return the meta object for the attribute '<em>Category</em>'.
+   * @see org.xtext.projectparamorel.dsl.dsl.Score#getCategory()
+   * @see #getScore()
    * @generated
    */
-  EClass getMetric();
+  EAttribute getScore_Category();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.projectparamorel.dsl.dsl.Metric#getState <em>State</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.projectparamorel.dsl.dsl.Score#getFeature <em>Feature</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>State</em>'.
-   * @see org.xtext.projectparamorel.dsl.dsl.Metric#getState()
-   * @see #getMetric()
+   * @return the meta object for the attribute '<em>Feature</em>'.
+   * @see org.xtext.projectparamorel.dsl.dsl.Score#getFeature()
+   * @see #getScore()
    * @generated
    */
-  EAttribute getMetric_State();
+  EAttribute getScore_Feature();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.projectparamorel.dsl.dsl.Metric#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.projectparamorel.dsl.dsl.Score#getValue <em>Value</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.projectparamorel.dsl.dsl.Metric#getName()
-   * @see #getMetric()
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.xtext.projectparamorel.dsl.dsl.Score#getValue()
+   * @see #getScore()
    * @generated
    */
-  EAttribute getMetric_Name();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.xtext.projectparamorel.dsl.dsl.Metric#getWeight <em>Weight</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Weight</em>'.
-   * @see org.xtext.projectparamorel.dsl.dsl.Metric#getWeight()
-   * @see #getMetric()
-   * @generated
-   */
-  EAttribute getMetric_Weight();
+  EAttribute getScore_Value();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -249,66 +220,56 @@ public interface DslPackage extends EPackage
   interface Literals
   {
     /**
-     * The meta object literal for the '{@link org.xtext.projectparamorel.dsl.dsl.impl.ExperienceImpl <em>Experience</em>}' class.
+     * The meta object literal for the '{@link org.xtext.projectparamorel.dsl.dsl.impl.PreferenceImpl <em>Preference</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.projectparamorel.dsl.dsl.impl.ExperienceImpl
-     * @see org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl#getExperience()
+     * @see org.xtext.projectparamorel.dsl.dsl.impl.PreferenceImpl
+     * @see org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl#getPreference()
      * @generated
      */
-    EClass EXPERIENCE = eINSTANCE.getExperience();
+    EClass PREFERENCE = eINSTANCE.getPreference();
 
     /**
-     * The meta object literal for the '<em><b>Entries</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Scores</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference EXPERIENCE__ENTRIES = eINSTANCE.getExperience_Entries();
+    EReference PREFERENCE__SCORES = eINSTANCE.getPreference_Scores();
 
     /**
-     * The meta object literal for the '{@link org.xtext.projectparamorel.dsl.dsl.impl.EntryImpl <em>Entry</em>}' class.
+     * The meta object literal for the '{@link org.xtext.projectparamorel.dsl.dsl.impl.ScoreImpl <em>Score</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.projectparamorel.dsl.dsl.impl.EntryImpl
-     * @see org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl#getEntry()
+     * @see org.xtext.projectparamorel.dsl.dsl.impl.ScoreImpl
+     * @see org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl#getScore()
      * @generated
      */
-    EClass ENTRY = eINSTANCE.getEntry();
+    EClass SCORE = eINSTANCE.getScore();
 
     /**
-     * The meta object literal for the '{@link org.xtext.projectparamorel.dsl.dsl.impl.MetricImpl <em>Metric</em>}' class.
+     * The meta object literal for the '<em><b>Category</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.projectparamorel.dsl.dsl.impl.MetricImpl
-     * @see org.xtext.projectparamorel.dsl.dsl.impl.DslPackageImpl#getMetric()
      * @generated
      */
-    EClass METRIC = eINSTANCE.getMetric();
+    EAttribute SCORE__CATEGORY = eINSTANCE.getScore_Category();
 
     /**
-     * The meta object literal for the '<em><b>State</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Feature</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute METRIC__STATE = eINSTANCE.getMetric_State();
+    EAttribute SCORE__FEATURE = eINSTANCE.getScore_Feature();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute METRIC__NAME = eINSTANCE.getMetric_Name();
-
-    /**
-     * The meta object literal for the '<em><b>Weight</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute METRIC__WEIGHT = eINSTANCE.getMetric_Weight();
+    EAttribute SCORE__VALUE = eINSTANCE.getScore_Value();
 
   }
 

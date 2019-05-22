@@ -27,7 +27,7 @@ public class DslParser extends AbstractAntlrParser {
 
 	@Override 
 	protected String getDefaultRuleName() {
-		return "Experience";
+		return "Preference";
 	}
 
 	public DslGrammarAccess getGrammarAccess() {

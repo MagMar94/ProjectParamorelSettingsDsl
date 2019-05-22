@@ -33,11 +33,11 @@ public class DslParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, DslGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getStateOptionAccess().getAlternatives(), "rule__StateOption__Alternatives");
 			builder.put(grammarAccess.getQualifiedNameAccess().getAlternatives(), "rule__QualifiedName__Alternatives");
-			builder.put(grammarAccess.getMetricAccess().getGroup(), "rule__Metric__Group__0");
-			builder.put(grammarAccess.getExperienceAccess().getEntriesAssignment(), "rule__Experience__EntriesAssignment");
-			builder.put(grammarAccess.getMetricAccess().getStateAssignment_5(), "rule__Metric__StateAssignment_5");
-			builder.put(grammarAccess.getMetricAccess().getNameAssignment_6(), "rule__Metric__NameAssignment_6");
-			builder.put(grammarAccess.getMetricAccess().getWeightAssignment_11(), "rule__Metric__WeightAssignment_11");
+			builder.put(grammarAccess.getScoreAccess().getGroup(), "rule__Score__Group__0");
+			builder.put(grammarAccess.getPreferenceAccess().getScoresAssignment(), "rule__Preference__ScoresAssignment");
+			builder.put(grammarAccess.getScoreAccess().getCategoryAssignment_0(), "rule__Score__CategoryAssignment_0");
+			builder.put(grammarAccess.getScoreAccess().getFeatureAssignment_1(), "rule__Score__FeatureAssignment_1");
+			builder.put(grammarAccess.getScoreAccess().getValueAssignment_4(), "rule__Score__ValueAssignment_4");
 		}
 	}
 	

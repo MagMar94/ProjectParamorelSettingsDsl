@@ -65,9 +65,8 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
   {
     switch (eClass.getClassifierID())
     {
-      case DslPackage.EXPERIENCE: return createExperience();
-      case DslPackage.ENTRY: return createEntry();
-      case DslPackage.METRIC: return createMetric();
+      case DslPackage.PREFERENCE: return createPreference();
+      case DslPackage.SCORE: return createScore();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -79,10 +78,10 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * @generated
    */
   @Override
-  public Experience createExperience()
+  public Preference createPreference()
   {
-    ExperienceImpl experience = new ExperienceImpl();
-    return experience;
+    PreferenceImpl preference = new PreferenceImpl();
+    return preference;
   }
 
   /**
@@ -91,22 +90,10 @@ public class DslFactoryImpl extends EFactoryImpl implements DslFactory
    * @generated
    */
   @Override
-  public Entry createEntry()
+  public Score createScore()
   {
-    EntryImpl entry = new EntryImpl();
-    return entry;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public Metric createMetric()
-  {
-    MetricImpl metric = new MetricImpl();
-    return metric;
+    ScoreImpl score = new ScoreImpl();
+    return score;
   }
 
   /**

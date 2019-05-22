@@ -76,19 +76,14 @@ public class DslAdapterFactory extends AdapterFactoryImpl
     new DslSwitch<Adapter>()
     {
       @Override
-      public Adapter caseExperience(Experience object)
+      public Adapter casePreference(Preference object)
       {
-        return createExperienceAdapter();
+        return createPreferenceAdapter();
       }
       @Override
-      public Adapter caseEntry(Entry object)
+      public Adapter caseScore(Score object)
       {
-        return createEntryAdapter();
-      }
-      @Override
-      public Adapter caseMetric(Metric object)
-      {
-        return createMetricAdapter();
+        return createScoreAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -113,46 +108,31 @@ public class DslAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.projectparamorel.dsl.dsl.Experience <em>Experience</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.projectparamorel.dsl.dsl.Preference <em>Preference</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.projectparamorel.dsl.dsl.Experience
+   * @see org.xtext.projectparamorel.dsl.dsl.Preference
    * @generated
    */
-  public Adapter createExperienceAdapter()
+  public Adapter createPreferenceAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.projectparamorel.dsl.dsl.Entry <em>Entry</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.projectparamorel.dsl.dsl.Score <em>Score</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.projectparamorel.dsl.dsl.Entry
+   * @see org.xtext.projectparamorel.dsl.dsl.Score
    * @generated
    */
-  public Adapter createEntryAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.projectparamorel.dsl.dsl.Metric <em>Metric</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.projectparamorel.dsl.dsl.Metric
-   * @generated
-   */
-  public Adapter createMetricAdapter()
+  public Adapter createScoreAdapter()
   {
     return null;
   }

@@ -4,8 +4,8 @@
 package org.xtext.projectparamorel.dsl.validation
 
 import org.eclipse.xtext.validation.Check
-import org.xtext.projectparamorel.dsl.dsl.Metric
 import org.xtext.projectparamorel.dsl.dsl.DslPackage
+import org.xtext.projectparamorel.dsl.dsl.Score
 
 /**
  * This class contains custom validation rules. 
@@ -15,51 +15,51 @@ import org.xtext.projectparamorel.dsl.dsl.DslPackage
 class DslValidator extends AbstractDslValidator {
 
 	@Check
-	def void checkWeightsAreLessThanElleven(Metric metric) {
-		if (metric.weight > 10) {
-			error("The weight can not be larger than 10", DslPackage.Literals.METRIC__WEIGHT)
+	def void checkWeightsAreLessThanElleven(Score score) {
+		if (score.value > 10) {
+			error("The weight can not be larger than 10", DslPackage.Literals.SCORE__VALUE)
 		}
 	}
 
 	@Check
-	def void checkWeightsAreMoreThanZero(Metric metric) {
-		if (metric.weight < 0) {
-			error("The weight can not be less than 1", DslPackage.Literals.METRIC__WEIGHT)
+	def void checkWeightsAreMoreThanZero(Score score) {
+		if (score.value < 0) {
+			error("The weight can not be less than 1", DslPackage.Literals.SCORE__VALUE)
 		}
 	}
 
 	@Check
-	def void checkCanNotPunishShorterSequencesOfActions(Metric metric) {
-		if(metric.state == "punish" && metric.name == "shorterSequencesOfActions"){
-			error("It is not possible to punish shorter sequences of actions. Did you mean to reward longer sequences of actions?", DslPackage.Literals.METRIC__STATE)
+	def void checkCanNotPunishShorterSequencesOfActions(Score score) {
+		if(score.category == "Punish" && score.feature == "shorterSequencesOfActions"){
+			error("It is not possible to punish shorter sequences of actions. Did you mean to reward longer sequences of actions?", DslPackage.Literals.SCORE__CATEGORY)
 		}
 	}
 	
 	@Check
-	def void checkCanNotPunishLongerSequencesOfActions(Metric metric) {
-		if(metric.state == "punish" && metric.name == "longerSequencesOfActions"){
-			error("It is not possible to punish longer sequences of actions. Did you mean to reward shorter sequences of actions?", DslPackage.Literals.METRIC__STATE)
+	def void checkCanNotPunishLongerSequencesOfActions(Score score) {
+		if(score.category == "Punish" && score.feature == "longerSequencesOfActions"){
+			error("It is not possible to punish longer sequences of actions. Did you mean to reward shorter sequences of actions?", DslPackage.Literals.SCORE__CATEGORY)
 		}
 	}
 	
 	@Check
-	def void checkCanNotPunishRepairingLowerInTheContextHierarchies(Metric metric) {
-		if(metric.state == "punish" && metric.name == "repairingLowerInTheContextHierarchies"){
-			error("It is not possible to punish repairing lower in the context hierarchies. Did you mean to reward reward repairing higher in the context hierarchies?", DslPackage.Literals.METRIC__STATE)
+	def void checkCanNotPunishRepairingLowerInTheContextHierarchies(Score score) {
+		if(score.category == "Punish" && score.feature == "repairingLowerInTheContextHierarchies"){
+			error("It is not possible to punish repairing lower in the context hierarchies. Did you mean to reward reward repairing higher in the context hierarchies?", DslPackage.Literals.SCORE__CATEGORY)
 		}
 	}
 	
 	@Check
-	def void checkCanNotPunishRepairingHigherInTheContextHierarchies(Metric metric) {
-		if(metric.state == "punish" && metric.name == "repairingHigherInTheContextHierarchies"){
-			error("It is not possible to punish repairing higher in the context hierarchies. Did you mean to reward reward repairing lower in the context hierarchies?", DslPackage.Literals.METRIC__STATE)
+	def void checkCanNotPunishRepairingHigherInTheContextHierarchies(Score score) {
+		if(score.category == "Punish" && score.feature == "repairingHigherInTheContextHierarchies"){
+			error("It is not possible to punish repairing higher in the context hierarchies. Did you mean to reward reward repairing lower in the context hierarchies?", DslPackage.Literals.SCORE__CATEGORY)
 		}
 	}
 	
 	@Check
-	def void checkCanNotRewardDeletion(Metric metric) {
-		if(metric.state == "reward" && metric.name == "deletion"){
-			error("It is not possible to reward deletion.", DslPackage.Literals.METRIC__STATE)
+	def void checkCanNotRewardDeletion(Score score) {
+		if(score.category == "Reward" && score.feature == "deletion"){
+			error("It is not possible to reward deletion.", DslPackage.Literals.SCORE__CATEGORY)
 		}
 	}
 	

@@ -26,6 +26,9 @@ hs_err_pid*
 *.xtendbin
 xtend-gen
 
+# Generated ecore diagrams
+.aird
+
 # Mac Specific files
 *.DS_Store
 bin/

@@ -6,14 +6,13 @@
     complianceLevel="6.0" copyrightFields="false" runtimeVersion="2.16">
   <genPackages prefix="Dsl" basePackage="org.xtext.projectparamorel.dsl" disposableProviderFactory="true"
       fileExtensions="ppdsl" ecorePackage="Dsl.ecore#/">
-    <genClasses ecoreClass="Dsl.ecore#//Experience">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Experience/entries"/>
+    <genClasses ecoreClass="Dsl.ecore#//Preference">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Dsl.ecore#//Preference/scores"/>
     </genClasses>
-    <genClasses ecoreClass="Dsl.ecore#//Entry"/>
-    <genClasses ecoreClass="Dsl.ecore#//Metric">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Metric/state"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Metric/name"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Metric/weight"/>
+    <genClasses ecoreClass="Dsl.ecore#//Score">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Score/category"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Score/feature"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Dsl.ecore#//Score/value"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

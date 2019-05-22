@@ -43,7 +43,7 @@ import org.xtext.projectparamorel.dsl.services.DslGrammarAccess;
 
     @Override
     protected String getFirstRuleName() {
-    	return "Experience";
+    	return "Preference";
    	}
 
    	@Override
@@ -60,15 +60,15 @@ import org.xtext.projectparamorel.dsl.services.DslGrammarAccess;
     }
 }
 
-// Entry rule entryRuleExperience
-entryRuleExperience returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getExperienceRule()); }
-	iv_ruleExperience=ruleExperience
-	{ $current=$iv_ruleExperience.current; }
+// Entry rule entryRulePreference
+entryRulePreference returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getPreferenceRule()); }
+	iv_rulePreference=rulePreference
+	{ $current=$iv_rulePreference.current; }
 	EOF;
 
-// Rule Experience
-ruleExperience returns [EObject current=null]
+// Rule Preference
+rulePreference returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -78,58 +78,33 @@ ruleExperience returns [EObject current=null]
 	(
 		(
 			{
-				newCompositeNode(grammarAccess.getExperienceAccess().getEntriesEntryParserRuleCall_0());
+				newCompositeNode(grammarAccess.getPreferenceAccess().getScoresScoreParserRuleCall_0());
 			}
-			lv_entries_0_0=ruleEntry
+			lv_scores_0_0=ruleScore
 			{
 				if ($current==null) {
-					$current = createModelElementForParent(grammarAccess.getExperienceRule());
+					$current = createModelElementForParent(grammarAccess.getPreferenceRule());
 				}
 				add(
 					$current,
-					"entries",
-					lv_entries_0_0,
-					"org.xtext.projectparamorel.dsl.Dsl.Entry");
+					"scores",
+					lv_scores_0_0,
+					"org.xtext.projectparamorel.dsl.Dsl.Score");
 				afterParserOrEnumRuleCall();
 			}
 		)
 	)*
 ;
 
-// Entry rule entryRuleEntry
-entryRuleEntry returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getEntryRule()); }
-	iv_ruleEntry=ruleEntry
-	{ $current=$iv_ruleEntry.current; }
+// Entry rule entryRuleScore
+entryRuleScore returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getScoreRule()); }
+	iv_ruleScore=ruleScore
+	{ $current=$iv_ruleScore.current; }
 	EOF;
 
-// Rule Entry
-ruleEntry returns [EObject current=null]
-@init {
-	enterRule();
-}
-@after {
-	leaveRule();
-}:
-	{
-		newCompositeNode(grammarAccess.getEntryAccess().getMetricParserRuleCall());
-	}
-	this_Metric_0=ruleMetric
-	{
-		$current = $this_Metric_0.current;
-		afterParserOrEnumRuleCall();
-	}
-;
-
-// Entry rule entryRuleMetric
-entryRuleMetric returns [EObject current=null]:
-	{ newCompositeNode(grammarAccess.getMetricRule()); }
-	iv_ruleMetric=ruleMetric
-	{ $current=$iv_ruleMetric.current; }
-	EOF;
-
-// Rule Metric
-ruleMetric returns [EObject current=null]
+// Rule Score
+ruleScore returns [EObject current=null]
 @init {
 	enterRule();
 }
@@ -137,40 +112,20 @@ ruleMetric returns [EObject current=null]
 	leaveRule();
 }:
 	(
-		otherlv_0='I'
-		{
-			newLeafNode(otherlv_0, grammarAccess.getMetricAccess().getIKeyword_0());
-		}
-		otherlv_1='want'
-		{
-			newLeafNode(otherlv_1, grammarAccess.getMetricAccess().getWantKeyword_1());
-		}
-		otherlv_2='my'
-		{
-			newLeafNode(otherlv_2, grammarAccess.getMetricAccess().getMyKeyword_2());
-		}
-		otherlv_3='preferences'
-		{
-			newLeafNode(otherlv_3, grammarAccess.getMetricAccess().getPreferencesKeyword_3());
-		}
-		otherlv_4='to'
-		{
-			newLeafNode(otherlv_4, grammarAccess.getMetricAccess().getToKeyword_4());
-		}
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMetricAccess().getStateStateOptionParserRuleCall_5_0());
+					newCompositeNode(grammarAccess.getScoreAccess().getCategoryStateOptionParserRuleCall_0_0());
 				}
-				lv_state_5_0=ruleStateOption
+				lv_category_0_0=ruleStateOption
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMetricRule());
+						$current = createModelElementForParent(grammarAccess.getScoreRule());
 					}
 					set(
 						$current,
-						"state",
-						lv_state_5_0,
+						"category",
+						lv_category_0_0,
 						"org.xtext.projectparamorel.dsl.Dsl.StateOption");
 					afterParserOrEnumRuleCall();
 				}
@@ -179,59 +134,51 @@ ruleMetric returns [EObject current=null]
 		(
 			(
 				{
-					newCompositeNode(grammarAccess.getMetricAccess().getNameQualifiedNameParserRuleCall_6_0());
+					newCompositeNode(grammarAccess.getScoreAccess().getFeatureQualifiedNameParserRuleCall_1_0());
 				}
-				lv_name_6_0=ruleQualifiedName
+				lv_feature_1_0=ruleQualifiedName
 				{
 					if ($current==null) {
-						$current = createModelElementForParent(grammarAccess.getMetricRule());
+						$current = createModelElementForParent(grammarAccess.getScoreRule());
 					}
 					set(
 						$current,
-						"name",
-						lv_name_6_0,
+						"feature",
+						lv_feature_1_0,
 						"org.xtext.projectparamorel.dsl.Dsl.QualifiedName");
 					afterParserOrEnumRuleCall();
 				}
 			)
 		)
-		otherlv_7='by'
+		otherlv_2='by'
 		{
-			newLeafNode(otherlv_7, grammarAccess.getMetricAccess().getByKeyword_7());
+			newLeafNode(otherlv_2, grammarAccess.getScoreAccess().getByKeyword_2());
 		}
-		otherlv_8='a'
+		otherlv_3='weight'
 		{
-			newLeafNode(otherlv_8, grammarAccess.getMetricAccess().getAKeyword_8());
-		}
-		otherlv_9='weight'
-		{
-			newLeafNode(otherlv_9, grammarAccess.getMetricAccess().getWeightKeyword_9());
-		}
-		otherlv_10='of'
-		{
-			newLeafNode(otherlv_10, grammarAccess.getMetricAccess().getOfKeyword_10());
+			newLeafNode(otherlv_3, grammarAccess.getScoreAccess().getWeightKeyword_3());
 		}
 		(
 			(
-				lv_weight_11_0=RULE_INT
+				lv_value_4_0=RULE_INT
 				{
-					newLeafNode(lv_weight_11_0, grammarAccess.getMetricAccess().getWeightINTTerminalRuleCall_11_0());
+					newLeafNode(lv_value_4_0, grammarAccess.getScoreAccess().getValueINTTerminalRuleCall_4_0());
 				}
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getMetricRule());
+						$current = createModelElement(grammarAccess.getScoreRule());
 					}
 					setWithLastConsumed(
 						$current,
-						"weight",
-						lv_weight_11_0,
+						"value",
+						lv_value_4_0,
 						"org.eclipse.xtext.common.Terminals.INT");
 				}
 			)
 		)
-		otherlv_12='.'
+		otherlv_5='.'
 		{
-			newLeafNode(otherlv_12, grammarAccess.getMetricAccess().getFullStopKeyword_12());
+			newLeafNode(otherlv_5, grammarAccess.getScoreAccess().getFullStopKeyword_5());
 		}
 	)
 ;
@@ -252,13 +199,13 @@ ruleStateOption returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleTok
 	leaveRule();
 }:
 	(
-		kw='reward'
+		kw='Reward'
 		{
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getStateOptionAccess().getRewardKeyword_0());
 		}
 		    |
-		kw='punish'
+		kw='Punish'
 		{
 			$current.merge(kw);
 			newLeafNode(kw, grammarAccess.getStateOptionAccess().getPunishKeyword_1());

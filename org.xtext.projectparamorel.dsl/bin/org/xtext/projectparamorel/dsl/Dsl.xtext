@@ -2,19 +2,15 @@ grammar org.xtext.projectparamorel.dsl.Dsl with org.eclipse.xtext.common.Termina
 
 generate dsl "http://www.xtext.org/projectparamorel/dsl/Dsl"
 
-Experience:
-	entries+=Entry*;
+Preference:
+	scores+=Score*;
 	
-Entry:
-	Metric
-;
-	
-Metric:
-	'I' 'want' 'my' 'preferences' 'to' state=StateOption name=QualifiedName 'by' 'a' 'weight' 'of' weight=INT '.'
+Score:
+	category=StateOption feature=QualifiedName 'by' 'weight' value=INT '.'
 ;
 
 StateOption:
-	'reward' | 'punish'
+	'Reward' | 'Punish'
 ;
 
 QualifiedName:

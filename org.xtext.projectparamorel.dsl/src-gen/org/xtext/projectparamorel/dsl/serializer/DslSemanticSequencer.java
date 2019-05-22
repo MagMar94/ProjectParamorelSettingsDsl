@@ -15,8 +15,8 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.projectparamorel.dsl.dsl.DslPackage;
-import org.xtext.projectparamorel.dsl.dsl.Experience;
-import org.xtext.projectparamorel.dsl.dsl.Metric;
+import org.xtext.projectparamorel.dsl.dsl.Preference;
+import org.xtext.projectparamorel.dsl.dsl.Score;
 import org.xtext.projectparamorel.dsl.services.DslGrammarAccess;
 
 @SuppressWarnings("all")
@@ -33,11 +33,11 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == DslPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case DslPackage.EXPERIENCE:
-				sequence_Experience(context, (Experience) semanticObject); 
+			case DslPackage.PREFERENCE:
+				sequence_Preference(context, (Preference) semanticObject); 
 				return; 
-			case DslPackage.METRIC:
-				sequence_Metric(context, (Metric) semanticObject); 
+			case DslPackage.SCORE:
+				sequence_Score(context, (Score) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -46,37 +46,36 @@ public class DslSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     Experience returns Experience
+	 *     Preference returns Preference
 	 *
 	 * Constraint:
-	 *     entries+=Entry+
+	 *     scores+=Score+
 	 */
-	protected void sequence_Experience(ISerializationContext context, Experience semanticObject) {
+	protected void sequence_Preference(ISerializationContext context, Preference semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     Entry returns Metric
-	 *     Metric returns Metric
+	 *     Score returns Score
 	 *
 	 * Constraint:
-	 *     (state=StateOption name=QualifiedName weight=INT)
+	 *     (category=StateOption feature=QualifiedName value=INT)
 	 */
-	protected void sequence_Metric(ISerializationContext context, Metric semanticObject) {
+	protected void sequence_Score(ISerializationContext context, Score semanticObject) {
 		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.METRIC__STATE) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.METRIC__STATE));
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.METRIC__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.METRIC__NAME));
-			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.METRIC__WEIGHT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.METRIC__WEIGHT));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SCORE__CATEGORY) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SCORE__CATEGORY));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SCORE__FEATURE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SCORE__FEATURE));
+			if (transientValues.isValueTransient(semanticObject, DslPackage.Literals.SCORE__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, DslPackage.Literals.SCORE__VALUE));
 		}
 		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getMetricAccess().getStateStateOptionParserRuleCall_5_0(), semanticObject.getState());
-		feeder.accept(grammarAccess.getMetricAccess().getNameQualifiedNameParserRuleCall_6_0(), semanticObject.getName());
-		feeder.accept(grammarAccess.getMetricAccess().getWeightINTTerminalRuleCall_11_0(), semanticObject.getWeight());
+		feeder.accept(grammarAccess.getScoreAccess().getCategoryStateOptionParserRuleCall_0_0(), semanticObject.getCategory());
+		feeder.accept(grammarAccess.getScoreAccess().getFeatureQualifiedNameParserRuleCall_1_0(), semanticObject.getFeature());
+		feeder.accept(grammarAccess.getScoreAccess().getValueINTTerminalRuleCall_4_0(), semanticObject.getValue());
 		feeder.finish();
 	}
 	
